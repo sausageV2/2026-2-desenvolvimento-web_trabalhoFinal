@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapataria Dalla</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --cor-primaria: #d9b382; /* Cor de couro (areia) */
+            --cor-secundaria: #413105; /* Marrom escuro */
+        }
+        .bg-custom-secundaria { background-color: var(--cor-secundaria) !important; color: white; }
+        .text-custom-secundaria { color: var(--cor-secundaria) !important; }
+        .btn-custom { background-color: var(--cor-secundaria); color: white; border: none; }
+        .btn-custom:hover { background-color: #3d2f07; color: white; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom-secundaria">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Sapataria Dalla</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="empresa.html">Sobre a Empresa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Carrossel de Destaques -->
+    <div id="meuCarrossel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex align-items-center justify-content-center" style="height: 400px; background-color: var(--cor-primaria);">
+                    <!-- Ajustado para contain -->
+                    <img src="img/logomarcaTexto.jpg" class="w-100 h-100" style="object-fit: contain;" alt="Logomarca Sapataria Dalla">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex align-items-center justify-content-center" style="height: 400px; background-color: var(--cor-primaria);">
+                    <img src="img/promocao.jpg" class="w-100 h-100" style="object-fit: contain;" alt="Promoção">
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#meuCarrossel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#meuCarrossel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    
+    <!-- Serviços e depoimentos são preenchidos pelo JavaScript consultando o PHP/MySQL. -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4 text-custom-secundaria">Nossos Serviços</h2>
+        <div id="listaServicos" class="row g-4 justify-content-center">
+            <p class="text-center text-muted">Carregando serviços...</p>
+        </div>
+        <p id="erroServicos" class="text-center text-danger mt-3" role="alert"></p>
+    </div>
+
+    <div class="py-5" style="background-color: var(--cor-primaria);">
+        <div class="container">
+            <h2 class="text-center mb-4 text-custom-secundaria">Depoimentos</h2>
+            <div id="listaDepoimentos" class="row g-3">
+                <p class="text-center text-muted">Carregando depoimentos...</p>
+            </div>
+            <p id="erroDepoimentos" class="text-center text-danger mt-3" role="alert"></p>
+
+            <div class="card shadow-sm border-0 mt-4 mx-auto" style="max-width: 700px;">
+                <div class="card-body p-4">
+                    <h4 class="text-custom-secundaria mb-3">Deixe seu depoimento</h4>
+                    <form id="formDepoimento">
+                        <div class="mb-3">
+                            <label for="nomeDepoimento" class="form-label">Seu nome</label>
+                            <input id="nomeDepoimento" name="nome" type="text" maxlength="100" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="textoDepoimento" class="form-label">Seu depoimento</label>
+                            <textarea id="textoDepoimento" name="depoimento" class="form-control" rows="4" maxlength="2000" required></textarea>
+                        </div>
+                        <button id="btnEnviarDepoimento" type="submit" class="btn btn-custom">Enviar depoimento</button>
+                        <p id="mensagemFormulario" class="mt-3 mb-0" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contato" class="container my-5">
+        <div class="row bg-white p-4 rounded shadow-sm border border-warning">
+            <div class="col-md-6 mb-4 mb-md-0 d-flex flex-column justify-content-center align-items-center text-center border-end">
+                <h3 class="text-custom-secundaria">Ficou com alguma dúvida?</h3>
+                <p>Clique no botão abaixo para nos enviar uma mensagem diretamente.</p>
+                <button type="button" class="btn btn-custom btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#modalContato">
+                    <i class="bi bi-envelope"></i> Entre em Contato
+                </button>
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-center ps-md-5">
+                <h4 class="text-custom-secundaria">Sapataria Dalla</h4>
+                <p><i class="bi bi-geo-alt"></i> Rua Sete de Setembro - D, 2720, Chapecó, Santa Catarina, 89806-152</p>
+                <p><i class="bi bi-telephone"></i> (54) 99934-4520</p>
+                <p>
+                    <a href="https://wa.me/5554999344520" class="text-decoration-none text-success" target="_blank">
+                        <i class="bi bi-whatsapp"></i> Iniciar conversa pelo WhatsApp
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="modalContatoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-custom-secundaria text-white">
+                    <h5 class="modal-title" id="modalContatoLabel">Entre em Contato</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Nome</label>
+                            <input type="text" class="form-control" placeholder="Seu Nome">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Seu Email">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mensagem</label>
+                            <textarea class="form-control" rows="4" placeholder="Sua Mensagem"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-custom-secundaria text-white text-center py-3 mt-auto">
+        <p class="mb-0">Desenvolvido por Renan Dalla Vecchia de Lima</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js" defer></script>
+</body>
+</html>
